@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "412583982908",
+    "firebase_url": "https://travelsmart-be84b.firebaseio.com",
+    "project_id": "travelsmart-be84b",
+    "storage_bucket": "travelsmart-be84b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412583982908:android:0a0d5aa944b39528",
+        "android_client_info": {
+          "package_name": "com.travelsmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412583982908-l578q96vhj741iv1qivses4hu0437bng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgZgwAFXDPh4z3Q0DeiII1xmpfzP4BuDU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
