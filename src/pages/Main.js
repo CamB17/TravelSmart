@@ -70,9 +70,7 @@ export default class Account extends Component {
       // console.log("loading user",this.state.user,this.state.loading);
     return (
         <Container>
-        <Header>
-            <Title>Header</Title>
-        </Header>
+        
           {content}
       </Container>
     );

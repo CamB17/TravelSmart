@@ -9,8 +9,11 @@ import {
   TextInput,
 } from 'react-native';
 import React, {Component} from 'react';
-import { Header,Container,Title, Content, Icon,  Card, CardItem ,Button, Fab,Footer } from 'native-base'
+import { Header,Container,Title, Content, Icon,  Card, CardItem ,Button, Fab,Footer } from 'native-base';
 import styles from '../styles/mainstyle.js';
+import TextField from 'react-native-md-textinput';
+import ListItem from '../components/ListItem.js';
+import Login from './Login';
 
 export default class Activities extends Component {
 
@@ -27,6 +30,22 @@ constructor(props) {
   componentDidMount(){
     // start listening for firebase updates
     this.listenForActs(this.actsRef);
+  }
+
+//This function places newly created activities to page bdiy
+  componentWillMount() {
+    // get the current user from firebase
+    // const userData = this.props.firebaseApp.auth().currentUser;
+    AsyncStorage.getItem('userData').then((user_data_json) => {
+      let userData = JSON.parse(user_data_json);
+      this.setState({
+        user: userData,
+        loading: false,
+        active:'true',
+        tasks:[]
+      });
+    });
+
   }
  
 //listener to get data from firebase and update listview accordingly
@@ -63,18 +82,15 @@ constructor(props) {
     return (
         <Container>
         <Header>
-            <Button transparent>
-                        <Icon name='ios-menu' />
-            </Button>
             <Title>Activities</Title>
             <Button transparent onPress={this.logout.bind(this)}>
-                        <Icon name='ios-arrow-back' />
+                        <Icon name='ios-arrow-back' position="topLeft" />
             </Button>
  
         </Header>
         {content}
-        <Footer style={styles.Footer}>
-          <TextInput
+        <Footer style={styles.footer}>
+          <TextField
             value={this.state.newAct}
             style={styles.textEdit}
             onChangeText={(text) => this.setState({newAct: text})}
@@ -82,8 +98,8 @@ constructor(props) {
           />
             <Fab
                  active={this.state.active}
-                 containerStyle={{ marginRight: 0,width:20 }}
-                 style={styles.float}
+                 containerStyle={{ marginRight: 0,width:20,}}
+                 style={styles.floatButton}
                  position="bottomRight"
                  onPress={() => this._addAct()}
              >

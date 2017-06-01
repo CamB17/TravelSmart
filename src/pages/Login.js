@@ -4,14 +4,23 @@ import {
   AsyncStorage,
   View,
   ToolbarAndroid,
-  ActivityIndicator
+  ActivityIndicator,
+  StyleSheet,
+  TextInput,
+  Image,
+  Text
 } from 'react-native';
-import { Header,Container,Title, Content, List, ListItem, InputGroup, Input, Icon, Text, Picker, Button } from 'native-base';
+import ButtonComponent, { CircleButton, RoundButton, RectangleButton } from 'react-native-button-component';
+import { Header,Container,Title, Picker } from 'native-base';
 import React, {Component} from 'react';
- import Signup from './Signup';
+import Signup from './Signup';
 import Account from './Main'
 import styles from '../styles/mainstyle.js';
 import Activities from './Activities';
+import ViewContainer from '../components/ViewContainer';
+import TextField from 'react-native-md-textinput';
+
+
 export default class Login extends Component {
  
   constructor(props){
@@ -31,46 +40,56 @@ export default class Login extends Component {
     <View style={styles.body}>
     <ActivityIndicator size="large"/>
     </View> :
- 
-    <Content>
-                   <List>
-                     <ListItem>
-                         <InputGroup>
-                         <Icon name="ios-person" style={{ color: '#0A69FE' }} />
-                         <Input
-                          onChangeText={(text) => this.setState({email: text})}
-                          value={this.state.email}
-                          placeholder={"Email Address"} />
-                          </InputGroup>
-                    </ListItem>
-                    <ListItem>
-                        <InputGroup>
-                          <Icon name="ios-unlock" style={{ color: '#0A69FE' }} />
-                        <Input
-                          onChangeText={(text) => this.setState({password: text})}
-                          value={this.state.password}
-                          secureTextEntry={true}
-                          placeholder={"Password"} />
-                        </InputGroup>
-                   </ListItem>
-                  </List>
-                  <Button style={styles.primaryButton} onPress={this.login.bind(this)}>
-                    <Text>Login</Text>
-                  </Button>
-                  <Button onPress={this.goToSignup.bind(this)} style={styles.primaryButton}>
-                    <Text>New Here?</Text>
-                  </Button>
- 
-          </Content>
+            
+            <ViewContainer>
+
+              <View style={styles.logo}>
+                <Image source={require('../resources/Smart_Travels.png')}/>
+              </View>
+                    
+              <View>
+                  <TextField
+                    onChangeText={(text) => this.setState({email: text})}
+                    value={this.state.email}
+                    label={"Email Address"}
+                    highlightColor={'#00BCD4'}
+                    dense={false}
+                  />
+                             
+                  <TextField
+                    onChangeText = {(text) => this.setState({password: text})}
+                    value={(this.state.password)} 
+                    label={'Password'}
+                    secureTextEntry={true}
+                    dense={false}
+                  />
+              </View>
+                  <RoundButton
+                    style = {styles.login}
+                    onPress={this.login.bind(this)}
+                    text="Login"
+                    backgroundColors={['#4DC7A4', '#66D37A']}
+                    gradientStart={{ x: 0.5, y: 1 }}
+                    gradientEnd={{ x: 1, y: 1 }}
+                  >
+                  </RoundButton>
+                  <RoundButton
+                    style = {styles.signup}
+                    onPress={this.goToSignup.bind(this)}
+                    text="Create Account"
+                    backgroundColors={['#4DC7A4', '#66D37A']}
+                    gradientStart={{ x: 0.5, y: 1 }}
+                    gradientEnd={{ x: 1, y: 1 }}
+                    >
+                  </RoundButton>
+ </ViewContainer>
+        
         ;
  
     // A simple UI with a toolbar, and content below it.
         return (
                   <Container>
-                            <Header>
-                              <Title>Login</Title>
-                           </Header>
- 
+                            
                   {content}
                 </Container>
                 );
@@ -108,5 +127,6 @@ export default class Login extends Component {
     });
   }
 }
+
  
 AppRegistry.registerComponent('Login', () => Login);

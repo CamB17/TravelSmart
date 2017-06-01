@@ -3,10 +3,11 @@ import {
   AppRegistry,
   View,
   ToolbarAndroid,
-  ActivityIndicator
+  ActivityIndicator,
+  TextInput
 } from 'react-native';
 import { Header,Title,Container, Content, List, ListItem, InputGroup, Input, Icon, Text, Picker, Button } from 'native-base';
- 
+import ButtonComponent, { CircleButton, RoundButton, RectangleButton } from 'react-native-button-component';
 import styles from '../styles/mainstyle.js';
 import React, {Component} from 'react';
 import Login from './Login';
@@ -62,8 +63,8 @@ export default class Signup extends Component {
                 <List>
                  <ListItem>
                      <InputGroup>
-                     <Icon name="ios-person" style={{ color: '#0A69FE' }} />
-                     <Input
+                     <TextInput
+                      style = {styles.textInput}
                       onChangeText={(text) => this.setState({email: text})}
                       value={this.state.email}
                       placeholder={"Email Address"} />
@@ -71,8 +72,8 @@ export default class Signup extends Component {
                 </ListItem>
                 <ListItem>
                     <InputGroup>
-                      <Icon name="ios-unlock" style={{ color: '#0A69FE' }} />
-                    <Input
+                    <TextInput
+                      style = {styles.textInput}
                       onChangeText={(text) => this.setState({password: text})}
                       value={this.state.password}
                       secureTextEntry={true}
@@ -80,12 +81,16 @@ export default class Signup extends Component {
                     </InputGroup>
                </ListItem>
               </List>
-              <Button style={styles.primaryButton} onPress={this.signup.bind(this)}>
-                <Text>Signup</Text>
-              </Button>
-              <Button onPress={this.goToLogin.bind(this)} style={styles.primaryButton}>
-                <Text>Go to Login</Text>
-              </Button>
+              <RoundButton
+                  style = {styles.signup} 
+                  onPress={this.signup.bind(this)}
+                  text="Signup">
+              </RoundButton>
+              <RoundButton
+                style = {styles.login}
+                onPress={this.goToLogin.bind(this)}
+                text="Back To Login">
+              </RoundButton>
       </Content>
     ;
     // A simple UI with a toolbar, and content below it.

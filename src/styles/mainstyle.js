@@ -8,6 +8,7 @@ module.exports = StyleSheet.create({
     alignItems: 'stretch',
     flex: 1
   },
+
   body: {
     flex: 9,
     flexDirection:'row',
@@ -15,19 +16,13 @@ module.exports = StyleSheet.create({
     justifyContent:'center',
     backgroundColor: '#F5FCFF',
   },
-  primaryButton: {
-    margin: 10,
-    padding: 15,
-    alignSelf:'center',
-    backgroundColor:"blue",
-    width:150
-  },
+  
   textEdit:{
     bottom:0,
     flex:1,
     width:300,
   },
-  float:{
+  floatButton:{
     flex:1,
     top:48,
     left:50,
@@ -38,5 +33,42 @@ module.exports = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'white'
-  }
+  },
+  login: {
+    paddingLeft: 40,
+    paddingRight: 40,
+    marginBottom: 40,
+    marginTop: 30,
+
+  },
+  signup : {
+    paddingLeft: 40,
+    paddingRight: 40,
+    marginBottom: 40,
+  },
+  textInput: {
+    height: 60,
+    paddingLeft: 40,
+    paddingRight: 40,
+    fontSize: 12,
+    alignItems: 'center',
+  },
+  logo: {
+    alignItems: 'center',
+    marginTop: 100,
+    marginBottom: 115,
+  },
+  logoReg: {
+    alignItems: 'center',
+    marginTop: 130,
+    marginBottom: 115,
+  },
+  // hairline: {
+  //   height: 1,
+  //   backgroundColor: 'black',
+  //   marginBottom: 40,
+  //   marginLeft: 40,
+  //   marginRight: 40
+  // },
+
 });
