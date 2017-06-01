@@ -61,12 +61,12 @@ module.exports = StyleSheet.create({
   logo: {
     alignItems: 'center',
     marginTop: 100,
-    marginBottom: 115,
+    marginBottom: 80,
   },
   logoReg: {
     alignItems: 'center',
     marginTop: 130,
-    marginBottom: 115,
+    marginBottom: 110,
   },
   title: {
     alignItems: 'center',
