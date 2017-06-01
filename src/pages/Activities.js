@@ -68,8 +68,6 @@ constructor(props) {
 
   render() {
     // console.log("acts value",this.state.acts);
-    // If we are loading then we display the indicator, if the account is null and we are not loading
-    // Then we display nothing. If the account is not null then we display the account info.
     const content = this.state.loading ?
     <ActivityIndicator size="large"/> :
        this.state.user &&
@@ -135,6 +133,18 @@ constructor(props) {
     <ListItem act={act} onActCompletion={onActCompletion} />
   );
   }
+      //Edit Activity
+  // _renderItem(act) {
+  //   const onActEdit= () => {
+  //     this.actsRef.child(act._key).edit().then(
+  //       function() {
+  //         alert("The act "+act.name+" has been edited");
+  //       });
+  //   }
+  //   return (
+  //   <ListItem act={act} onActEdit={onActEdit} />
+  //   );
+  // }
 
   //add a new act to firebase app
   _addAct() {

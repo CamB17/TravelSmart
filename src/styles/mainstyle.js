@@ -72,6 +72,9 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     fontSize: 24,
 
+  },
+  check: {
+    paddingLeft: 40,
   }
   // hairline: {
   //   height: 1,

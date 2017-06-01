@@ -8,9 +8,8 @@ class ListItem extends Component {
   render() {
     return (
       <CardItem>
-          <Icon name='md-create' />
           <Text>{this.props.act.name}</Text>
-          <Icon name='md-checkmark' onPress={() => this.props.onActCompletion()}/>
+          <Icon style={styles.check} name='md-checkmark' onPress={() => this.props.onActCompletion()}/>
       </CardItem>
     );
   }
