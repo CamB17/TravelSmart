@@ -1,4 +1,4 @@
-<div align="center" ><img src="./Smart_Travels.png"></div>
+<div align="center" ><img src="http://imgur.com/l0tWrYp"></div>
 
 # Welcome To Travel Smart Readme!
 
