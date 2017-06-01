@@ -1,4 +1,4 @@
-<div align="center" ><img src="./screenshots_mockups/invert_logo.png"></div>
+<div align="center" ><img src="./Smart_Travels.png"></div>
 
 # Welcome To Travel Smart Readme!
 
