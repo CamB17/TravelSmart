@@ -4,13 +4,18 @@ import {
   View,
   ToolbarAndroid,
   ActivityIndicator,
-  TextInput
+  TextInput,
+  KeyboardAvoidingView,
+  Image
 } from 'react-native';
 import { Header,Title,Container, Content, List, ListItem, InputGroup, Input, Icon, Text, Picker, Button } from 'native-base';
 import ButtonComponent, { CircleButton, RoundButton, RectangleButton } from 'react-native-button-component';
 import styles from '../styles/mainstyle.js';
 import React, {Component} from 'react';
 import Login from './Login';
+import ViewContainer from '../components/ViewContainer';
+import TextField from 'react-native-md-textinput';
+
 export default class Signup extends Component {
   constructor(props) {
     super(props);
@@ -59,46 +64,44 @@ export default class Signup extends Component {
     // The content of the screen should be inputs for a username, password and submit button.
     // If we are loading then we display an ActivityIndicator.
     const content = this.state.loading ? <ActivityIndicator size="large"/> :
-           <Content>
-                <List>
-                 <ListItem>
-                     <InputGroup>
-                     <TextInput
-                      style = {styles.textInput}
-                      onChangeText={(text) => this.setState({email: text})}
-                      value={this.state.email}
-                      placeholder={"Email Address"} />
-                      </InputGroup>
-                </ListItem>
-                <ListItem>
-                    <InputGroup>
-                    <TextInput
-                      style = {styles.textInput}
-                      onChangeText={(text) => this.setState({password: text})}
-                      value={this.state.password}
-                      secureTextEntry={true}
-                      placeholder={"Password"} />
-                    </InputGroup>
-               </ListItem>
-              </List>
-              <RoundButton
-                  style = {styles.signup} 
-                  onPress={this.signup.bind(this)}
-                  text="Signup">
-              </RoundButton>
-              <RoundButton
-                style = {styles.login}
-                onPress={this.goToLogin.bind(this)}
-                text="Back To Login">
-              </RoundButton>
-      </Content>
+        <ViewContainer>
+
+          <View style={styles.logo}>
+            <Image source={require('../resources/Smart_Travels.png')}/>
+          </View>
+                 
+          <KeyboardAvoidingView
+            behavior="padding">
+              
+              <TextField
+                onChangeText={(text) => this.setState({email: text})}
+                value={this.state.email}
+                label={"Email Address"}
+                dense={false}
+                highlightColor={'#42a5f5'}
+              />
+              <TextField
+                onChangeText={(text) => this.setState({password: text})}
+                value={this.state.password}
+                secureTextEntry={true}
+                label={"Password"}
+                dense={false}
+                highlightColor={'#42a5f5'}
+              />
+          </KeyboardAvoidingView>
+            
+            <RoundButton 
+              style = {styles.login}
+              onPress={this.signup.bind(this)}
+              backgroundColors={['#b39ddb', '#ede7f6']}
+              text="Signup">
+            </RoundButton>
+      </ViewContainer>
     ;
     // A simple UI with a toolbar, and content below it.
         return (
                   <Container>
-                  <Header>
-                     <Title>Sign Up</Title>
-                  </Header>
+                  
                   {content}
                   </Container>
                 )

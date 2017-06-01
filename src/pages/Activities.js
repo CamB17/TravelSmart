@@ -14,6 +14,7 @@ import styles from '../styles/mainstyle.js';
 import TextField from 'react-native-md-textinput';
 import ListItem from '../components/ListItem.js';
 import Login from './Login';
+import FAB from 'react-native-fab'
 
 export default class Activities extends Component {
 
@@ -74,6 +75,7 @@ constructor(props) {
        this.state.user &&
                  <Content>
                   <Card dataArray={this.state.acts}
+                    style={styles.card}
                     renderRow={(act) => this._renderItem(act)} >
                   </Card>
                 </Content>
@@ -81,32 +83,35 @@ constructor(props) {
       // console.log("loading user",this.state.user,this.state.loading);
     return (
         <Container>
-        <Header>
-            <Title>Activities</Title>
+        <View style={styles.title}>
+            <Text>Planned Activities</Text>
             <Button transparent onPress={this.logout.bind(this)}>
                         <Icon name='ios-arrow-back' position="topLeft" />
             </Button>
  
-        </Header>
+        </View>
         {content}
-        <Footer style={styles.footer}>
+        <View style={styles.footer}>
           <TextField
             value={this.state.newAct}
             style={styles.textEdit}
             onChangeText={(text) => this.setState({newAct: text})}
-            placeholder="New Activity"
+            highlightColor={'#00BCD4'}
+            dense={false}
+            label="New Activity"
           />
-            <Fab
+            <FAB
                  active={this.state.active}
                  containerStyle={{ marginRight: 0,width:20,}}
+                 buttonColor="#6c5b7b"
                  style={styles.floatButton}
                  position="bottomRight"
-                 onPress={() => this._addAct()}
+                 onClickAction={() => this._addAct()}
              >
                  <Icon name="md-add" />
-             </Fab>
+             </FAB>
  
-        </Footer>
+        </View>
  
       </Container>
     );

@@ -8,7 +8,8 @@ import {
   StyleSheet,
   TextInput,
   Image,
-  Text
+  Text,
+  KeyboardAvoidingView
 } from 'react-native';
 import ButtonComponent, { CircleButton, RoundButton, RectangleButton } from 'react-native-button-component';
 import { Header,Container,Title, Picker } from 'native-base';
@@ -19,6 +20,7 @@ import styles from '../styles/mainstyle.js';
 import Activities from './Activities';
 import ViewContainer from '../components/ViewContainer';
 import TextField from 'react-native-md-textinput';
+import { Button } from 'react-native-material-design';
 
 
 export default class Login extends Component {
@@ -40,49 +42,48 @@ export default class Login extends Component {
     <View style={styles.body}>
     <ActivityIndicator size="large"/>
     </View> :
+        
+        <ViewContainer>
+          
+          <View style={styles.logo}>
+            <Image source={require('../resources/Smart_Travels.png')}/>
+          </View>
             
-            <ViewContainer>
-
-              <View style={styles.logo}>
-                <Image source={require('../resources/Smart_Travels.png')}/>
-              </View>
-                    
-              <View>
-                  <TextField
-                    onChangeText={(text) => this.setState({email: text})}
-                    value={this.state.email}
-                    label={"Email Address"}
-                    highlightColor={'#00BCD4'}
-                    dense={false}
-                  />
-                             
-                  <TextField
-                    onChangeText = {(text) => this.setState({password: text})}
-                    value={(this.state.password)} 
-                    label={'Password'}
-                    secureTextEntry={true}
-                    dense={false}
-                  />
-              </View>
-                  <RoundButton
-                    style = {styles.login}
-                    onPress={this.login.bind(this)}
-                    text="Login"
-                    backgroundColors={['#4DC7A4', '#66D37A']}
-                    gradientStart={{ x: 0.5, y: 1 }}
-                    gradientEnd={{ x: 1, y: 1 }}
-                  >
-                  </RoundButton>
-                  <RoundButton
-                    style = {styles.signup}
-                    onPress={this.goToSignup.bind(this)}
-                    text="Create Account"
-                    backgroundColors={['#4DC7A4', '#66D37A']}
-                    gradientStart={{ x: 0.5, y: 1 }}
-                    gradientEnd={{ x: 1, y: 1 }}
-                    >
-                  </RoundButton>
- </ViewContainer>
+            <View>    
+                <TextField
+                  onChangeText={(text) => this.setState({email: text})}
+                  value={this.state.email}
+                  label={"Email Address"}
+                  highlightColor={'#42a5f5'}
+                  dense={false}
+                />                             
+                <TextField
+                  onChangeText = {(text) => this.setState({password: text})}
+                  value={(this.state.password)} 
+                  label={'Password'}
+                  secureTextEntry={true}
+                  highlightColor={'#42a5f5'}
+                  dense={false}
+                />
+            </View>
+                  
+                <RoundButton
+                  style = {styles.login}
+                  onPress={this.login.bind(this)}
+                  text="Login"
+                  backgroundColors={['#b39ddb', '#ede7f6']}
+                  gradientStart={{ x: 0.5, y: 0.5 }}
+                  gradientEnd={{ x: 1, y: 1 }}
+                  spinner={true}
+                >
+                </RoundButton>
+                <Button
+                  style = {styles.signup}
+                  onPress={this.goToSignup.bind(this)}
+                  text="Create Account"
+                >
+                </Button>
+        </ViewContainer>
         
         ;
  

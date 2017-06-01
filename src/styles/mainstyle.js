@@ -24,7 +24,7 @@ module.exports = StyleSheet.create({
   },
   floatButton:{
     flex:1,
-    top:48,
+    top:70,
     left:50,
     alignSelf:'center',
     backgroundColor:'#34A34F'
@@ -32,7 +32,8 @@ module.exports = StyleSheet.create({
   footer:{
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'white'
+    backgroundColor:'white',
+    height: 90,
   },
   login: {
     paddingLeft: 40,
@@ -41,10 +42,14 @@ module.exports = StyleSheet.create({
     marginTop: 30,
 
   },
-  signup : {
+  signup: {
     paddingLeft: 40,
     paddingRight: 40,
     marginBottom: 40,
+  },
+  signup2: {
+    marginBottom:70,
+
   },
   textInput: {
     height: 60,
@@ -63,6 +68,11 @@ module.exports = StyleSheet.create({
     marginTop: 130,
     marginBottom: 115,
   },
+  title: {
+    alignItems: 'center',
+    fontSize: 24,
+
+  }
   // hairline: {
   //   height: 1,
   //   backgroundColor: 'black',
